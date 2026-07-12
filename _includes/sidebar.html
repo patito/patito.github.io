@@ -1,18 +1,21 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
-    <div class="sidebar-about">
 
-      <h1>
-        <a href="{{ site.baseurl }}">
-          <img class="profile-picture" src="{{ site.baseurl }}public/225e531.jpg" />
-          {{ site.title }}
-        </a>
-      </h1>
+    <div class="term-titlebar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="term-path">~/patito — zsh</span>
+    </div>
+
+    <div class="sidebar-about">
+      <a class="sidebar-brand" href="{{ site.baseurl }}">
+        <img class="profile-picture" src="{{ site.baseurl }}public/225e531.jpg" alt="{{ site.author.name }}" />
+        <h1 class="site-name"><span class="prompt">~/</span>{{ site.title }}<span class="cursor"></span></h1>
+      </a>
       <p class="lead">{{ site.description }}</p>
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}"><i class="fa fa-home"></i></a>
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}" title="Home"><i class="fa fa-home"></i></a>
 
       {% assign pages_list = site.pages %}
       {% for node in pages_list %}
@@ -23,10 +26,10 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="mailto:benatto@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a class="sidebar-nav-item" href="https://twitter.com/pbenatto"><i class="fa fa-twitter"></i></a>
-      <a class="sidebar-nav-item" href="https://github.com/patito"><i class="fa fa-github"></i></a>
-      <a class="sidebar-nav-item" href="/atom.xml"><i class="fa fa-feed"></i></a>
+      <a class="sidebar-nav-item" href="mailto:benatto@gmail.com" title="E-mail"><i class="fa fa-envelope"></i></a>
+      <a class="sidebar-nav-item" href="https://twitter.com/pbenatto" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a class="sidebar-nav-item" href="https://github.com/patito" title="GitHub"><i class="fa fa-github"></i></a>
+      <a class="sidebar-nav-item" href="/atom.xml" title="RSS"><i class="fa fa-feed"></i></a>
     </nav>
   </div>
 </div>

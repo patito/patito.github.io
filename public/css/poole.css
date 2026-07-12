@@ -1,292 +1,230 @@
 /*
- *                        ___
- *                       /\_ \
- *  _____     ___     ___\//\ \      __
- * /\ '__`\  / __`\  / __`\\ \ \   /'__`\
- * \ \ \_\ \/\ \_\ \/\ \_\ \\_\ \_/\  __/
- *  \ \ ,__/\ \____/\ \____//\____\ \____\
- *   \ \ \/  \/___/  \/___/ \/____/\/____/
- *    \ \_\
- *     \/_/
- *
- * Designed, built, and released under MIT license by @mdo. Learn more at
- * https://github.com/poole/poole.
+ * Poole (base) — repaginado para o tema "terminal claro" do plb.
+ * Base tipográfica, cores, código, tabelas e paginação.
+ * Original © @mdo (MIT). Reescrito para patito.github.io.
  */
 
+:root {
+  --ground:      #f4f5f3;
+  --surface:     #ffffff;
+  --ink:         #1b1f24;
+  --body:        #33383f;
+  --muted:       #5c6470;
+  --faint:       #868e9a;
+  --border:      #e4e6e2;
+  --accent:      #17966b;
+  --accent-deep: #0f7a55;
+  --amber:       #e0a127;
 
-/*
- * Contents
- *
- * Body resets
- * Custom type
- * Messages
- * Container
- * Masthead
- * Posts and pages
- * Pagination
- * Reverse layout
- * Themes
- */
+  --term-bg:    #16181d;
+  --term-panel: #1d2027;
+  --term-line:  #2b2f38;
+  --term-ink:   #c9d1d9;
+  --term-dim:   #7d8695;
 
-
-/*
- * Body resets
- *
- * Update the foundational and global aspects of the page.
- */
-
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, ui-monospace, monospace;
+  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--sans);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.65;
 }
-@media (min-width: 38em) {
-  html {
-    font-size: 20px;
-  }
+@media (min-width: 52em) {
+  html { font-size: 17px; }
 }
 
 body {
-  color: #515151;
-  background-color: #fff;
+  color: var(--body);
+  background-color: var(--ground);
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* No `:visited` state is required by default (browsers will use `a`) */
+/* Links */
 a {
-  color: #268bd2;
+  color: var(--accent-deep);
   text-decoration: none;
 }
-a strong {
-  color: inherit;
-}
-/* `:focus` is linked to `:hover` for basic accessibility */
-a:hover,
-a:focus {
+a strong { color: inherit; }
+a:hover, a:focus {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Headings */
+/* Headings — monoespaçadas, cara de terminal */
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: .5rem;
-  font-weight: bold;
-  line-height: 1.25;
-  color: #313131;
+  margin-top: 2rem;
+  margin-bottom: .6rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
   text-rendering: optimizeLegibility;
+  text-wrap: balance;
 }
-h1 {
-  font-size: 2rem;
-}
-h2 {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-}
-h3 {
-  margin-top: 1.5rem;
-  font-size: 1.25rem;
-}
-h4, h5, h6 {
-  margin-top: 1rem;
-  font-size: 1rem;
-}
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.2rem; }
+h4, h5, h6 { font-size: 1rem; }
 
 /* Body text */
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
+p { margin: 0 0 1.1rem; }
+strong { color: var(--ink); }
 
-strong {
-  color: #303030;
-}
+ul, ol, dl { margin: 0 0 1.1rem; }
+li { margin-bottom: .3rem; }
+dt { font-weight: 600; color: var(--ink); }
+dd { margin-bottom: .5rem; }
 
-
-/* Lists */
-ul, ol, dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-dt {
-  font-weight: bold;
-}
-dd {
-  margin-bottom: .5rem;
-}
-
-/* Misc */
+/* Divisórias */
 hr {
   position: relative;
-  margin: 1.5rem 0;
+  margin: 2.4rem 0;
   border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid var(--border);
 }
 
 abbr {
   font-size: 85%;
-  font-weight: bold;
-  color: #555;
+  font-weight: 600;
+  color: var(--muted);
   text-transform: uppercase;
 }
 abbr[title] {
   cursor: help;
-  border-bottom: 1px dotted #e5e5e5;
+  border-bottom: 1px dotted var(--border);
 }
 
-/* Code */
-code,
-pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+/* ---------- Código ---------- */
+code, pre {
+  font-family: var(--mono);
 }
+
+/* Código inline — chip claro com acento */
 code {
-  padding: .25em .5em;
-  font-size: 85%;
-  color: #bf616a;
-  background-color: #f9f9f9;
-  border-radius: 3px;
+  padding: .12em .42em;
+  font-size: .85em;
+  color: var(--accent-deep);
+  background-color: rgba(23,150,107,.09);
+  border: 1px solid rgba(23,150,107,.16);
+  border-radius: 4px;
 }
+
+/* Bloco de código — janela de terminal escura */
 pre {
   display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  font-size: .8rem;
-  line-height: 1.4;
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.2rem;
+  font-size: .82rem;
+  line-height: 1.7;
   white-space: pre;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f9f9f9;
+  overflow-x: auto;
+  color: var(--term-ink);
+  background-color: var(--term-bg);
+  border-radius: .55rem;
+  box-shadow: 0 12px 30px -14px rgba(20,24,31,.4);
 }
 pre code {
   padding: 0;
   font-size: 100%;
   color: inherit;
   background-color: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
-/* Pygments via Jekyll */
+/* Rouge/Pygments via Jekyll */
 .highlight {
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  position: relative;
+  margin: 1.4rem 0;
+  border-radius: .55rem;
+  overflow: hidden;
+  box-shadow: 0 12px 30px -14px rgba(20,24,31,.4);
 }
 .highlight pre {
-  margin-bottom: 0;
-}
-
-/* Gist via GitHub Pages */
-.gist .gist-file {
-  font-family: Menlo, Monaco, "Courier New", monospace !important;
-}
-.gist .markdown-body {
-  padding: 15px;
-}
-.gist pre {
-  padding: 0;
-  background-color: transparent;
-}
-.gist .gist-file .gist-data {
-  font-size: .8rem !important;
-  line-height: 1.4;
-}
-.gist code {
-  padding: 0;
-  color: inherit;
-  background-color: transparent;
+  margin: 0;
+  box-shadow: none;
   border-radius: 0;
+  padding-top: 1.6rem;
+}
+/* Barrinha de "traffic lights" no topo do bloco */
+.highlight::before {
+  content: "";
+  position: absolute;
+  top: .7rem;
+  left: .9rem;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: #ec6a5e;
+  box-shadow: .85rem 0 0 #f4bf50, 1.7rem 0 0 #61c554;
+  z-index: 1;
 }
 
 /* Quotes */
 blockquote {
-  padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  padding: .4rem 1.1rem;
+  margin: 1.4rem 0;
+  color: var(--muted);
+  border-left: .2rem solid var(--accent);
+  background: rgba(23,150,107,.045);
+  border-radius: 0 .3rem .3rem 0;
 }
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-@media (min-width: 30em) {
-  blockquote {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
-  }
-}
+blockquote p:last-child { margin-bottom: 0; }
 
 img {
   display: block;
   max-width: 100%;
-  margin: 0 0 1rem;
-  border-radius: 5px;
+  height: auto;
+  margin: 1.4rem 0;
+  border-radius: 8px;
 }
 
-/* Tables */
+/* Tabelas */
 table {
-  margin-bottom: 1rem;
+  margin: 1.4rem 0;
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--border);
   border-collapse: collapse;
+  font-size: .9rem;
 }
-td,
-th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+td, th {
+  padding: .4rem .7rem;
+  border: 1px solid var(--border);
+  text-align: left;
 }
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
-}
+th { font-family: var(--mono); font-size: .82rem; color: var(--ink); }
+tbody tr:nth-child(odd) td { background-color: rgba(0,0,0,.02); }
 
 
-/*
- * Custom type
- *
- * Extend paragraphs with `.lead` for larger introductory text.
- */
-
+/* ---------- Custom type ---------- */
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--muted);
 }
-
-
-/*
- * Messages
- *
- * Show alert messages to users. You may add it to single elements like a `<p>`,
- * or to a parent if there are multiple elements to show.
- */
 
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  color: var(--muted);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: .4rem;
 }
 
 
-/*
- * Container
- *
- * Center the page content.
- */
-
+/* ---------- Container ---------- */
 .container {
-  max-width: 38rem;
+  max-width: 44rem;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
@@ -294,144 +232,79 @@ tbody tr:nth-child(odd) th {
 }
 
 
-/*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
-
-.masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
-}
-.masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
-}
-.masthead-title a {
-  color: #505050;
-}
-.masthead-title small {
-  font-size: 75%;
-  font-weight: 400;
-  color: #c0c0c0;
-  letter-spacing: 0;
+/* ---------- Posts e páginas ---------- */
+.page, .post {
+  margin-bottom: 3.5rem;
 }
 
-
-/*
- * Posts and pages
- *
- * Each post is wrapped in `.post` and is used on default and post layouts. Each
- * page is wrapped in `.page` and is only used on the page layout.
- */
-
-.page,
-.post {
-  margin-bottom: 4em;
-}
-
-/* Blog post or page title */
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: var(--ink);
 }
-.page-title,
-.post-title {
-  margin-top: 0;
-}
+.post-title { font-size: 1.75rem; line-height: 1.25; }
+.post-title a:hover { color: var(--accent-deep); text-decoration: none; }
+.page-title, .post-title { margin-top: 0; }
 
-/* Meta data line below post title */
+/* Meta abaixo do título — estilo comentário de terminal */
 .post-date {
   display: block;
-  margin-top: -.5rem;
-  margin-bottom: 1rem;
-  color: #9a9a9a;
+  margin: -.2rem 0 1.4rem;
+  font-family: var(--mono);
+  font-size: .76rem;
+  color: var(--faint);
 }
+.post-date::before { content: "# "; color: var(--accent); }
 
-/* Related posts */
+/* Related */
 .related {
   padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
 }
-.related-posts {
-  padding-left: 0;
-  list-style: none;
-}
-.related-posts h3 {
-  margin-top: 0;
-}
-.related-posts li small {
-  font-size: 75%;
-  color: #999;
-}
-.related-posts li a:hover {
-  color: #268bd2;
-  text-decoration: none;
-}
-.related-posts li a:hover small {
-  color: inherit;
-}
+.related-posts { padding-left: 0; list-style: none; }
+.related-posts h3 { margin-top: 0; }
+.related-posts li small { font-size: 75%; color: var(--faint); }
+.related-posts li a:hover { color: var(--accent-deep); text-decoration: none; }
 
+/* "Continuar lendo" */
 .read-more {
-  padding: .5rem .8rem;
-  border: 1px solid #eee;
-  font-size: .8rem;
+  display: inline-block;
   margin-top: 1rem;
-  font-weight: bold;
+  font-family: var(--mono);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--accent-deep);
 }
+.read-more:hover { text-decoration: none; color: var(--accent); }
 
-/*
- * Pagination
- *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
- */
 
+/* ---------- Paginação ---------- */
 .pagination {
-  overflow: hidden; /* clearfix */
-  margin-left: -1rem;
-  margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+  overflow: hidden;
+  margin: 3rem 0;
+  font-family: var(--mono);
+  color: var(--faint);
   text-align: center;
 }
-
-/* Pagination items can be `span`s or `a`s */
 .pagination-item {
   display: block;
-  padding: 1rem;
-  border: 1px solid #eee;
+  padding: .8rem;
+  font-size: .82rem;
+  border: 1px solid var(--border);
+  border-radius: .4rem;
+  background: var(--surface);
 }
-.pagination-item:first-child {
-  margin-bottom: -1px;
-}
-
-/* Only provide a hover state for linked pagination items */
+.pagination-item + .pagination-item { margin-top: -1px; }
+a.pagination-item { color: var(--muted); }
 a.pagination-item:hover {
-  background-color: #f5f5f5;
+  background-color: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent-deep);
+  text-decoration: none;
 }
 
 @media (min-width: 30em) {
-  .pagination {
-    margin: 3rem 0;
-  }
-  .pagination-item {
-    float: left;
-    width: 50%;
-  }
-  .pagination-item:first-child {
-    margin-bottom: 0;
-    border-top-left-radius:    4px;
-    border-bottom-left-radius: 4px;
-  }
-  .pagination-item:last-child {
-    margin-left: -1px;
-    border-top-right-radius:    4px;
-    border-bottom-right-radius: 4px;
-  }
+  .pagination { display: flex; gap: .6rem; }
+  .pagination-item { flex: 1; }
+  .pagination-item + .pagination-item { margin-top: 0; }
 }

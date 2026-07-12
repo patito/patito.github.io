@@ -9,12 +9,9 @@ highlighter:      rouge
 # Setup
 title:            plb
 tagline:          ''
-description:      >
-  <p class="lead">
-    Brazilian compressed with LZO, delivering nonsense bugs.
-  </p> 
-url:              http://patito.github.io
-baseurl:          http://patito.github.io/
+description:      'Brazilian compressed with LZO, delivering nonsense bugs.'
+url:              https://patito.github.io
+baseurl:          https://patito.github.io/
 
 author:
   name:           'Paulo Leonardo Benatto'
