@@ -79,7 +79,7 @@ Eventually, my ears became trained enough to understand "potato English."
 
 ## And the Confusion with the Sellotape
 
-I worked in the IT Team. In the beginning, the team was Dennis, Josh, Kevin, Christian, Anders and me. As Brandwatch grew, the team naturally grew as well.
+I worked in the IT Team. In the beginning, the team was Dennis, Josh, Toby, Kevin, Christian, Anders and me. As Brandwatch grew, the team naturally grew as well.
 During those years, I probably made quite a few cultural and language mistakes.
 
 One of the best happened while we were putting together a physical Kanban board to organise our tasks. We were sticking pieces of paper to the wall, and I needed some sellotape.
