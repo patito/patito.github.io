@@ -9,7 +9,7 @@ highlighter:      rouge
 # Setup
 title:            plb
 tagline:          ''
-description:      'Brazilian compressed with LZO, delivering nonsense bugs.'
+description:      'Stories about people, places and the choices that shaped my life.'
 url:              https://patito.github.io
 baseurl:          https://patito.github.io/
 
@@ -18,4 +18,4 @@ author:
   url:            https://twitter.com/pbenatto
 
 paginate:         5
-gems: [jekyll-paginate]
+plugins:          [jekyll-paginate]

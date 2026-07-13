@@ -1,0 +1,6 @@
+# Overrides SÓ para preview local (make serve).
+# baseurl "/" faz os assets virarem caminhos absolutos (/public/css/...),
+# funcionando em todas as páginas e carregando os arquivos LOCAIS em vez
+# do CSS de produção. url aponta pro localhost pra links absolutos/feed.
+url:              "http://localhost:4000"
+baseurl:          "/"

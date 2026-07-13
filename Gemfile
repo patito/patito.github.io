@@ -1,10 +1,10 @@
-# A sample Gemfile
 source "https://rubygems.org"
 
-require 'json'
-require 'open-uri'
-versions = JSON.parse(open('https://pages.github.com/versions.json').read)
-gem 'github-pages', versions['github-pages']
-gem 'guard'
-gem 'guard-jekyll-plus'
-gem 'guard-livereload'
+# Preview local. O GitHub Pages ignora este Gemfile e builda com o
+# próprio ambiente `github-pages`; aqui usamos o Jekyll moderno, que
+# gera este blog de forma equivalente e muito mais rápido de instalar.
+gem "jekyll", "~> 4.3"
+gem "jekyll-paginate"
+
+# Necessário para `jekyll serve` no Ruby 3+ (webrick saiu da stdlib).
+gem "webrick", "~> 1.8"

@@ -15,7 +15,7 @@ title: Blog
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
     {% if post.content contains "<!-- more -->" %}
-      {{ post.content | split:"<!-- more -->" | first % }}
+      {{ post.content | split:"<!-- more -->" | first }}
       <a class="read-more" href="{{ post.url }}">Continue reading &raquo;</a>
     {% else %}
       {{ post.content | strip_html | truncatewords:100 }}

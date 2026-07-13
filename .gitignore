@@ -3,6 +3,12 @@ _gh_pages
 _site
 .ruby-version
 
+# Ruby / Bundler (preview local)
+vendor
+.bundle
+.jekyll-cache
+.jekyll-metadata
+
 # Numerous always-ignore extensions
 *.diff
 *.err
